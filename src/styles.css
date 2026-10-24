@@ -1,0 +1,315 @@
+:root {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: #fafafa;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+code {
+  background: #eee;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+.day-picker select {
+  font: inherit;
+  min-height: 2.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+:focus-visible {
+  outline: 3px solid #0b5fff;
+  outline-offset: 2px;
+}
+
+.overview {
+  margin-top: 1rem;
+  /* 8 columns of 44px targets do not fit 360px; scroll the table, not the page. */
+  overflow-x: auto;
+}
+
+.overview h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.overview table {
+  width: 100%;
+  min-width: 23.25rem;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 2px;
+  font-size: 0.7rem;
+}
+
+.overview th {
+  font-weight: 600;
+  padding: 0.25rem 0;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.overview tbody th {
+  text-align: left;
+}
+
+.overview td {
+  padding: 0;
+}
+
+.overview-cell {
+  display: block;
+  width: 100%;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  padding: 0.25rem 0;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  color: inherit;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.overview-empty {
+  background: #dff3e1;
+}
+
+.overview-part {
+  background: #fff3c4;
+}
+
+.overview-full {
+  background: #f4b9b2;
+  font-weight: 700;
+}
+
+.overview th.overview-selected {
+  text-decoration: underline;
+}
+
+.overview-cell.overview-selected {
+  border-color: #1a1a1a;
+  outline: 2px solid #1a1a1a;
+  outline-offset: -3px;
+}
+
+@media (min-width: 48rem) {
+  .overview table {
+    font-size: 0.9rem;
+  }
+}
+
+.rooms {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.room h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.room-facts {
+  margin: 0 0 0.5rem;
+  color: #555;
+}
+
+.slots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.slot {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+}
+
+.slot-time {
+  font-variant-numeric: tabular-nums;
+  min-width: 3.5rem;
+}
+
+.slot-free {
+  background: #dff3e1;
+}
+
+.slot-booked {
+  background: #fde2c8;
+}
+
+.slot-unavailable {
+  background: #e6e6e6;
+  color: #666;
+}
+
+@media (min-width: 48rem) {
+  .rooms {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.storage-notice {
+  margin: 0.25rem 0 0.75rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.slot-book {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0.25rem 0;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  flex: 1;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.booking-confirmation {
+  padding: 0.5rem 0.75rem;
+  background: #dff3e1;
+  border-radius: 3px;
+}
+
+.booking-form {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  /* Phone base: pinned to the bottom of the screen, within thumb reach. */
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  margin: 0;
+  max-height: min(80vh, 24rem);
+  overflow-y: auto;
+  border-width: 1px 0 0;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Keep the end of the page reachable while the form is pinned. */
+.app:has(.booking-form) {
+  padding-bottom: 24rem;
+}
+
+@media (min-width: 48rem) {
+  .booking-form {
+    position: static;
+    margin: 1rem 0;
+    max-height: none;
+    overflow-y: visible;
+    border-width: 1px;
+    border-radius: 6px;
+    box-shadow: none;
+  }
+
+  .app:has(.booking-form) {
+    padding-bottom: 2rem;
+  }
+}
+
+.booking-form h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.booking-form label {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.booking-form select,
+.booking-form input,
+.booking-form button {
+  font: inherit;
+  min-height: 2.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.booking-facts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 0.75rem;
+  margin: 0;
+}
+
+.booking-facts dt {
+  color: #555;
+}
+
+.booking-facts dd {
+  margin: 0;
+}
+
+.booking-error {
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  background: #f4b9b2;
+  border-radius: 3px;
+}
+
+.booking-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.booking-actions button {
+  flex: 1;
+}
+
+.my-bookings-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.my-bookings-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  overflow-wrap: anywhere;
+}
+
+.my-booking-cancel {
+  flex: none;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0.25rem 0.75rem;
+}
+
+.cancel-error {
+  margin: 0 0 0.5rem;
+  color: #a00;
+}
