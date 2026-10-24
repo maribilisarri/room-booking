@@ -16,6 +16,7 @@ Everyone works on this repo's finished app (`step-2-build`), whatever stack you 
 git fetch && git switch -C step-2-build origin/step-2-build
 git remote add mine https://github.com/<your-username>/room-booking.git
 git push mine step-2-build:main
+yytutyuyut
 ```
 
 **d. Watch it deploy:** in the **Actions** tab, **CI** runs first, then **Deploy to GitHub Pages**. If Deploy didn't start, open it and click **Run workflow**.
